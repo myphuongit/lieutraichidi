@@ -1,0 +1,170 @@
+:root {
+  --bg: #f6f1e7;
+  --paper: #fffdf8;
+  --ink: #2b2620;
+  --muted: #7c7264;
+  --accent: #8c2f24;
+  --accent-soft: #b9553f;
+  --line: #e3d9c6;
+  --max: 820px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  line-height: 1.75;
+  font-size: 18px;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Headers ---------- */
+.site-header {
+  background: linear-gradient(160deg, #8c2f24, #5c1c15);
+  color: #fdf6ec;
+  padding: 56px 0 40px;
+  text-align: center;
+  border-bottom: 4px solid #3f120d;
+}
+.site-header h1 {
+  font-size: 2.8rem;
+  margin: 0 0 8px;
+  letter-spacing: 2px;
+}
+.site-header .byline { margin: 0; font-size: 1.15rem; opacity: .92; }
+.site-header .count { margin: 12px 0 0; font-size: .95rem; opacity: .8; letter-spacing: .5px; }
+
+/* ---------- Toolbar / search ---------- */
+.toolbar { margin: 32px 0 8px; }
+#search {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+}
+#search:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent-soft); }
+
+/* ---------- Table of contents ---------- */
+.toc { margin-bottom: 60px; }
+.volume { margin-top: 36px; }
+.volume h2 {
+  font-size: 1.35rem;
+  color: var(--accent);
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.story-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2px 24px;
+}
+.story-list li a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 8px;
+  text-decoration: none;
+  color: var(--ink);
+  border-radius: 6px;
+}
+.story-list li a:hover { background: #efe6d4; }
+.story-list .num { color: var(--muted); font-variant-numeric: tabular-nums; font-size: .85rem; min-width: 34px; }
+.story-list .vt { font-weight: 600; }
+.story-list .ot { color: var(--muted); font-size: .82rem; font-style: italic; margin-left: auto; }
+
+/* ---------- Story page ---------- */
+.story-header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 28px 0 24px;
+  text-align: center;
+}
+.story-header .home-link {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: .9rem;
+  margin-bottom: 14px;
+}
+.story-header .home-link:hover { text-decoration: underline; }
+.story-header .crumb { color: var(--muted); margin: 0 0 4px; font-size: .9rem; letter-spacing: 1px; text-transform: uppercase; }
+.story-header h1 { font-size: 2rem; margin: 4px 0; color: var(--accent); }
+.story-header .orig-title { color: var(--muted); font-style: italic; margin: 0; }
+
+.story-body {
+  background: var(--paper);
+  padding: 40px 40px 48px;
+  margin: 30px auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(60,40,20,.06);
+}
+.story-body p { margin: 0 0 1.15em; text-align: justify; }
+.story-body p:first-child::first-letter {
+  font-size: 3.2rem;
+  float: left;
+  line-height: .8;
+  padding: 4px 10px 0 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ---------- Story navigation ---------- */
+.story-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0 auto 60px;
+  flex-wrap: wrap;
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--accent);
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: .9rem;
+  max-width: 42%;
+}
+.nav-link:hover { background: #efe6d4; }
+.nav-link.disabled { color: #bbb; border-color: transparent; background: transparent; }
+.nav-link.toc-link { font-weight: 600; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 620px) {
+  body { font-size: 17px; }
+  .site-header h1 { font-size: 2rem; }
+  .story-body { padding: 24px 20px 30px; }
+  .story-list { grid-template-columns: 1fr; }
+  .story-list .ot { display: none; }
+  .nav-link { max-width: 100%; flex: 1 1 100%; text-align: center; }
+}
