@@ -168,3 +168,77 @@ body {
   .story-list .ot { display: none; }
   .nav-link { max-width: 100%; flex: 1 1 100%; text-align: center; }
 }
+
+/* ---------- Top nav link on homepage ---------- */
+.site-header .topnav { margin: 16px 0 0; }
+.site-header .topnav a {
+  color: #fdf6ec;
+  text-decoration: none;
+  border: 1px solid rgba(253,246,236,.5);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: .9rem;
+}
+.site-header .topnav a:hover { background: rgba(253,246,236,.15); }
+
+/* ---------- Footnote markers & list ---------- */
+.fn-ref { font-size: .7em; line-height: 0; }
+.fn-ref a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+  padding: 0 1px;
+}
+.fn-ref a:hover { text-decoration: underline; }
+/* highlight a footnote when jumped to */
+.fn-list li:target,
+.story-body p:has(.fn-ref:target) { }
+:target { scroll-margin-top: 16px; }
+
+.footnotes {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 32px 26px;
+  margin: 0 auto 30px;
+}
+.footnotes h2 {
+  font-size: 1.15rem;
+  color: var(--accent);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+  margin: 0 0 12px;
+}
+.fn-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: .92rem;
+  color: #4a4238;
+  line-height: 1.6;
+}
+.fn-list li { margin: 0 0 .7em; }
+.fn-list li:target { background: #fbeecf; border-radius: 6px; padding: 4px 8px; }
+.fn-back {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 4px;
+}
+.fn-back:hover { text-decoration: underline; }
+
+/* ---------- Appendix (Phụ Lục) ---------- */
+.ap-title {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin: 8px 0 2px;
+}
+.ap-author { color: var(--muted); font-style: italic; margin: 0 0 18px; }
+.ap-sep {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 32px 0;
+}
+.story-body .ap-title + .ap-author + p::first-letter {
+  font-size: inherit; float: none; padding: 0; color: inherit; font-weight: inherit;
+}
